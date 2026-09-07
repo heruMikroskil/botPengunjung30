@@ -104,7 +104,7 @@ page.wait_for_timeout(2000)
 
 if __name__ == "__main__":
     jumlah = 1
-    mulaiDari = 3
+    mulaiDari = 4
     print("Mulai...")
     for i in range (mulaiDari, mulaiDari+jumlah):
         contact = contacts[i]
