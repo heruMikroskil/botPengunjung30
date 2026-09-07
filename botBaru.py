@@ -59,7 +59,7 @@ async def main(nama, email, c):
             await page.screenshot(path=f"{c}_2lewati.png")
 
             #Close banner
-            #await page.wait_for_timeout(3000)
+            #await page.wait_for_timeout(5000)
             #Tombol close banner
             await page.mouse.click(592, 531)
         
