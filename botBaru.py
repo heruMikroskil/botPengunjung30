@@ -41,14 +41,15 @@ async def main(nama, email, c):
             await page.check("input.form-check-input")
 
             await page.wait_for_timeout(1500)
-            # 2. Klik cookies
-            await page.mouse.click(620, 1236)
+            
             if(c<=10):
                 await page.screenshot(path=f"{c}_0reg.png")
             # 3. Regis
             await page.click("button[type='submit']")
             await page.wait_for_timeout(7500)
             await page.screenshot(path=f"{c}_1login.png")
+# 2. Klik cookies
+            await page.mouse.click(620, 1236)
             #await page.wait_for_timeout(2000)
             # 4. Tombol lewati
             await page.mouse.click(352, 1007)
@@ -102,7 +103,7 @@ async def main(nama, email, c):
 
 if __name__ == "__main__":
     jumlah = 1
-    mulaiDari = 1
+    mulaiDari = 2
     print("Mulai...")
     for i in range (mulaiDari, mulaiDari+jumlah):
         contact = contacts[i]
