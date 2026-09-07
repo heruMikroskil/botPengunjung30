@@ -2,7 +2,7 @@ import asyncio
 from playwright.async_api import async_playwright
 import pytesseract
 import random as r
-from data27 import contacts
+from data28 import contacts
 from PIL import Image
 
 def sisip(email, char):
@@ -104,8 +104,8 @@ async def main(nama, email, c):
         await browser.close()
 
 if __name__ == "__main__":
-    jumlah = 200
-    mulaiDari = 300
+    jumlah = 400
+    mulaiDari = 500
     print("Mulai...")
     for i in range (mulaiDari, mulaiDari+jumlah):
         contact = contacts[i]
