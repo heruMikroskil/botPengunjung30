@@ -34,7 +34,7 @@ async def main(nama, email, c):
             await page.fill("#profile_name", nama)
             await page.fill("#profile_email", email)
             await page.fill("#profile_company_name", "Kementerian Imigrasi dan Pemasyarakatan")
-            await page.fill("#profile_occupation", "Ditjen Imigrasi dan Pemasyarakatan")
+            await page.fill("#profile_occupation", "Masyarakat")
             await page.fill("#profile_phone_number", noHP)
             await page.fill("#profile_password", "Admin123")
             await page.fill("#profile_password_confirmation", "Admin123")
@@ -44,7 +44,8 @@ async def main(nama, email, c):
             
             if(c<=10):
                 await page.screenshot(path=f"{c}_0reg.png")
-page.wait_for_timeout(2000)
+
+            page.wait_for_timeout(2000)
 # 2. Klik cookies
             await page.mouse.click(620, 1236)
 #Regis
