@@ -99,8 +99,8 @@ async def main(nama, email, c):
 
             print(f"Akun : ({c}) {nama} | Selesai")
             await page.wait_for_timeout(1000)
-        except:
-            print(f"Terjadi Error : {c} {nama} {email}")
+        except Exception as e:
+            print(f"Terjadi Error : {c} {nama} {email}\n{e}")
         await browser.close()
 
 if __name__ == "__main__":
