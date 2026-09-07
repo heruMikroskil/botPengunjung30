@@ -2,7 +2,7 @@ import asyncio
 from playwright.async_api import async_playwright
 import pytesseract
 import random as r
-from data24 import contacts
+from data27 import contacts
 from PIL import Image
 
 def sisip(email, char):
