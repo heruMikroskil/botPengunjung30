@@ -50,7 +50,9 @@ async def main(nama, email, c):
             #await page.wait_for_timeout(2000)
             # 4. Tombol lewati
             await page.mouse.click(352, 1007)
-            await page.wait_for_timeout(5000) #memuat hall dengan banner
+            await page.wait_for_timeout(500)
+            await page.mouse.click(352, 1007)
+            await page.wait_for_timeout(7000) #memuat hall dengan banner
             await page.screenshot(path=f"{c}_2lewati.png")
 
             #Close banner
