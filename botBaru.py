@@ -40,7 +40,9 @@ async def main(nama, email, c):
             await page.fill("#profile_password_confirmation", "Admin123")
             await page.check("input.form-check-input")
 
-            await page.wait_for_timeout(500)
+            await page.wait_for_timeout(1500)
+            # 2. Klik cookies
+            await page.mouse.click(620, 1236)
             if(c<=10):
                 await page.screenshot(path=f"{c}_0reg.png")
             # 3. Regis
@@ -50,7 +52,7 @@ async def main(nama, email, c):
             #await page.wait_for_timeout(2000)
             # 4. Tombol lewati
             await page.mouse.click(352, 1007)
-            await page.wait_for_timeout(500)
+            await page.wait_for_timeout(100)
             await page.mouse.click(352, 1007)
             await page.wait_for_timeout(7000) #memuat hall dengan banner
             await page.screenshot(path=f"{c}_2lewati.png")
@@ -61,8 +63,7 @@ async def main(nama, email, c):
             await page.mouse.click(592, 531)
         
             await page.wait_for_timeout(1000)
-            # 2. Klik cookies
-            await page.mouse.click(620, 1236)
+            
             #await page.wait_for_timeout(2000)
             await page.screenshot(path=f"{c}_3banner.png")
 
@@ -101,7 +102,7 @@ async def main(nama, email, c):
 
 if __name__ == "__main__":
     jumlah = 1
-    mulaiDari = 0
+    mulaiDari = 1
     print("Mulai...")
     for i in range (mulaiDari, mulaiDari+jumlah):
         contact = contacts[i]
