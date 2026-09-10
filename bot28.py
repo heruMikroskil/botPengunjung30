@@ -21,6 +21,7 @@ def getHP():
 
 async def main(nama, email, c):
     async with async_playwright() as p:
+        kerja = ["Masyarakat", "Petani", "Pedagang", "Kuli", "Nelayan","Supir","Mekanik", "Wirausaha"]
         noHP = getHP()
         browser = await p.chromium.launch(headless=True ,args=["--disable-dev-shm-usage", "--no-sandbox"])
         page = await browser.new_page(viewport={'width': 720, 'height': 1280})
@@ -33,8 +34,8 @@ async def main(nama, email, c):
             # 3. Isi data akun
             await page.fill("#profile_name", nama)
             await page.fill("#profile_email", email)
-            await page.fill("#profile_company_name", "Kementerian Imigrasi dan Pemasyarakatan")
-            await page.fill("#profile_occupation", "Masyarakat")
+            await page.fill("#profile_company_name", "-")
+            await page.fill("#profile_occupation", kerja[r.randint(0,8)])
             await page.fill("#profile_phone_number", noHP)
             await page.fill("#profile_password", "Admin123")
             await page.fill("#profile_password_confirmation", "Admin123")
@@ -42,8 +43,8 @@ async def main(nama, email, c):
 
             await page.wait_for_timeout(1500)
             
-            #if(c<=1):
-                #await page.screenshot(path=f"{c}_0reg.png")
+            if(c<=1):
+                await page.screenshot(path=f"{c}_0reg.png")
 
             page.wait_for_timeout(2000)
 # 2. Klik cookies
@@ -51,8 +52,7 @@ async def main(nama, email, c):
 #Regis
             await page.click("button[type='submit']")
             await page.wait_for_timeout(10000)
-            if(c<=1):
-                await page.screenshot(path=f"{c}_1login.png")
+            #await page.screenshot(path=f"{c}_1login.png")
 
             # 4. Tombol lewati
             await page.mouse.click(352, 1007)
@@ -91,8 +91,8 @@ async def main(nama, email, c):
             await page.wait_for_timeout(3000)
             #await page.screenshot(path=f"{c}_7booth_imigrasi.png") #berhasil filter
             #await page.mouse.click(470, 830) #info
-            await page.mouse.click(357, 624) #video
-            #await page.mouse.click(170, 662) #poster kiri
+            #await page.mouse.click(357, 624) #video
+            await page.mouse.click(170, 662) #poster kiri
             #await page.mouse.click(540, 662) #poster kanan
             await page.wait_for_timeout(1000)
             if(c<=5 or c==199 or c==299):            
@@ -106,14 +106,14 @@ async def main(nama, email, c):
 
 if __name__ == "__main__":
     jumlah = 300
-    mulaiDari = 600
+    mulaiDari = 900
     print("Mulai...")
     for i in range (mulaiDari, mulaiDari+jumlah):
         contact = contacts[i]
         nama = contact["nama"]
         #nama = nama[3:-3]
         email = contact["email"]
-        email = sisip(email, "088")
+        email = sisip(email, "077")
         c = i-mulaiDari
         #print(f"Proses: {nama} ({email})")
         asyncio.run(main(nama, email, c))
